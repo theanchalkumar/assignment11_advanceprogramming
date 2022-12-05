@@ -1,0 +1,94 @@
+1.
+
+def filter_primes(l):
+    l1 = []
+    for i in l:
+        if i > 1:
+            for j in range(2,i):
+                if i % j == 0:
+                    break
+            else:
+                l1.append(i)        
+    return l1            
+
+print(filter_primes([7,9,3,9,10,11,27]))
+print(filter_primes([10007, 1009, 1007, 27, 147, 77, 1001, 70]))
+print(filter_primes([1009, 10, 10, 10, 3, 33, 9, 4, 1, 61, 63, 69, 1087, 1091, 1093, 1097]))
+
+2.
+
+def pop(l):
+    mid = int((len(l) - 1) / 2)
+    for i in range(mid):
+        l[i] = i
+        l[i-mid] = mid-i-1
+    return l
+    
+print(pop([0,0,0,0,4,0,0,0,0]))
+print(pop([0,0,0,3,0,0,0]))
+print(pop([0,0,2,0,0]))
+print(pop([0]))
+    
+
+3.
+
+
+def loves_me(n):
+    l = []
+    s = ''
+    for i in range(n):
+        if i % 2 == 0:
+            l.append('Loves me')
+        else:
+            l.append('Loves me not')
+            
+    l[i] = l[i].upper()
+    
+    for i in l:
+        s += i +', '
+    s = s.rstrip(', ')
+    return s
+
+print(loves_me(3))
+print(loves_me(6))
+print(loves_me(1))
+
+
+4.
+
+
+def sort_by_letter(l):
+
+    for i in range(len(l)):
+        for j in l[i]:
+            if j.isalpha():
+                l[i] = j + l[i]
+    l.sort()
+    for i in range(len(l)):
+        l[i] = l[i][1:]
+
+    return l
+
+print(sort_by_letter(["932c", "832u32", "2344b"]))
+
+print(sort_by_letter(["99a", "78b", "c2345", "11d"]))
+
+print(sort_by_letter(["572z", "5y5", "304q2"]))
+
+print(sort_by_letter([]))
+
+5.
+
+def cup_swapping(l):
+    position = 'B'
+    l1 =[]
+    for i in range(len(l)):
+        if position in l[i]:
+            position =  l[i].replace(position,'')
+            
+    return position       
+            
+print(cup_swapping(["AB", "CA", "AB"]))
+print(cup_swapping(["BA", "AB", "BC"]))
+print(cup_swapping(["AB", "CA", "CB"]))        
+print(cup_swapping(["CB", "BC", "BA"])) 
